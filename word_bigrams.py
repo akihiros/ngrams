@@ -1,38 +1,15 @@
-# import collections
-
-# def n_gram(target, n):
-#   return [ target[idx:idx + n] for idx in range(len(target) - n + 1)]
-
-
-# with open('text/FIFAnews-English.txt') as f:
-#     s = f.read()
-#     word = s.split(' ')
-
-#     c = collections.Counter(word)
-#     print(c.most_common())
-#     # print(n_gram(word, 2))
-
 import nltk
 from nltk.collections import *
 
 
 f = open('text/FIFAnews-Spanish.txt')
 raw = f.read()
-
 tokens = nltk.word_tokenize(raw)
-
-#Create your bigrams
 bgs = nltk.bigrams(tokens)
-
-#compute frequency distribution for all the bigrams in the text
 fdist = nltk.FreqDist(bgs)
 fdists = fdist.most_common()
 
 print(fdists)
-
-# for k,v in fdist.items():
-#     print(k,v)
-
 f.close()
 
 '''
